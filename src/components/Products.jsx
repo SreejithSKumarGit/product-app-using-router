@@ -1,6 +1,17 @@
 import React  from "react";
-import { ReactDOM } from "react";
-import {Link} from "react-router-dom"
+
+import {Link} from "react-router-dom";
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+  } from '@chakra-ui/react'
 
 function Products()
 {
@@ -19,25 +30,30 @@ function Products()
         },[]
     )
     return(
-        <table>
-            <thead>
-                <th>Product Name</th>
-                <th>Product Price</th>
-                <th>More Details</th>
-            </thead>
-            <tbody>
+        
+        <Table variant="striped" colorScheme="teal">
+            <Thead>
+                
+                <Th>Product Name</Th>
+                <Th>Product Price</Th>
+                <Th>More Details</Th>
+             
+            </Thead>
+            <Tbody>
             {
                 products?.map((product)=>
                 (
-                 <tr key={product.id}>
-                    <td>{product.title}</td>
-                    <td>{product.price}</td>
-                    <Link to={`/products/${product.id}`}>More Details</Link>
-                 </tr>   
+                 <Tr key={product.id}>
+                    <Td>{product.title}</Td>
+                    <Td>{product.price}</Td>
+                    <Td><Link to={`/products/${product.id}`}>More Details</Link></Td>
+                    
+                 </Tr>   
                 ))
             }
-            </tbody>
-        </table>
+            </Tbody>
+        </Table>
+        
     )
 } 
 
